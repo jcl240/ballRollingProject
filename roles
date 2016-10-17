@@ -1,0 +1,34 @@
+Prefabs:
+    Block obstructions - Ryan
+    Rails
+    Different balls
+    GameManager - Joe
+    Collectables
+Scripts:
+    Ball rolling & jumping - Ryan
+    Camera - Jim
+    GameManager - Joe
+        -Points
+        -Time
+        -GameEnd
+    LevelManagement - Joe
+    Collectables - Last projects
+    MusicSingleton - Joe
+    Change Ball Size 
+Scenes:
+    Start Scene
+    End scene
+    Levels
+Materials:
+    Ball materials
+    Block materials
+    Rails
+Assets:
+    Background
+    Ball textures
+    Block textures
+    Rail textures
+    Collectables
+    Music
+
+    

@@ -1,0 +1,34 @@
+Prefabs:
+    Block obstructions
+    Rails
+    Different balls
+    GameManager
+    Collectables
+Scripts:
+    Ball rolling & jumping
+    Camera
+    GameManager
+        -Points
+        -Time
+        -GameEnd
+    LevelManagement
+    Collectables
+    MusicSingleton
+    Change Ball Size
+Scenes:
+    Start Scene
+    End scene
+    Levels
+Materials:
+    Ball materials
+    Block materials
+    Rails
+Assets:
+    Background
+    Ball textures
+    Block textures
+    Rail textures
+    Collectables
+    Music
+
+    
