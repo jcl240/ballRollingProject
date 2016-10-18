@@ -5,11 +5,18 @@ public class PlayerController : MonoBehaviour {
 
 	public float speed;
 	public float jumpForce = 1000f;
+	public Transform groundCheck;
+	public Camera mainCamera;
 	[HideInInspector] public bool jump = false;
 
 	private Rigidbody rb;
-	private bool notGrounded = false;
+	private bool grounded = false;
 
+	void Awake()
+	{
+		groundCheck = GameObject.Find("groundCheck").transform;
+		mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+	}
 	void Start ()
 	{
 		rb = GetComponent<Rigidbody>();
@@ -17,9 +24,8 @@ public class PlayerController : MonoBehaviour {
 
 	void Update()
 	{
-		/*grounded = Physics2D.Linecast (transform.position, groundCheck.position, 1 << LayerMask.NameToLayer (currentPage));
-		*/
-		if (Input.GetKeyDown ("space")/* && notGrounded*/) {
+		grounded = Physics.Linecast (transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
+		if (Input.GetKeyDown ("space") && grounded) {
 			jump = true;
 		}
 	}
@@ -29,8 +35,9 @@ public class PlayerController : MonoBehaviour {
 		float moveHorizontal = Input.GetAxis ("Horizontal");
 		float moveVertical = Input.GetAxis ("Vertical");
 
-		Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
+		mainCamera.transform.RotateAround(transform.position, Vector3.up, moveHorizontal);
 
+		Vector3 movement = mainCamera.transform.forward * moveVertical;
 		rb.AddForce (movement * speed);
 
 		if (jump) {
